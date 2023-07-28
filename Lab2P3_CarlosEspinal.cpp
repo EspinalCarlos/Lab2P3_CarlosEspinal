@@ -2,15 +2,18 @@
 using namespace std;
 
 void menu() {
-    cout << "---- MENU DE OPCIONES ----\n" << "Opcion 1: Tablero de Ajedrez\n" << "Opcion 2: Raiz n de x\n" ;
+    cout << "---- MENU DE OPCIONES ----\n" << "Opcion 1: Tablero de Ajedrez\n" << "Opcion 2: Raiz n de x\n" << "Opcion 3: SALIDA";
 }
 
 void ejercicio1() {
+	// Esta funcion imprime un tablero de ajedrez dependiendo de el parametro que el usuario asigne.
 	int numtablero;
 	cout << "Ingrese un numero: ";
 	cin >> numtablero;
 
+	//for para filas
 	for (size_t i = 0; i < numtablero; i++){
+		//condicion para las filas pares 
 		if (i%2 == 0){
 			for (size_t i = 0; i < numtablero; i++){
 				if (i%2 == 0){
@@ -23,6 +26,7 @@ void ejercicio1() {
 			cout << endl;
 			
 		}
+		//condicion para las filas impares
 		else {
 			for (size_t i = 0; i < numtablero; i++){
 				if (i%2 == 0){
@@ -41,9 +45,11 @@ void ejercicio1() {
 }
 
 void ejercicio2() {
+	//Esta funcion encuentra la raiz de n de x mediante iteraciones con un bucle
+
 	int iteraciones = 0;
 	do {
-		int x, n;
+		double x, n;
 		cout << "Ingrese el valor de de x: ";
 		cin >> x;
 		cout << endl;
@@ -58,20 +64,31 @@ void ejercicio2() {
 		}
 		else {
 			double min, mid, max;
+			min = 1.0;
+			max = x;
 			for (int i = 0; i < iteraciones; i++){
-				if (i == 0) {
-					min = 1;
-					max = x;
-					mid = (min + max) /(2);
-				}
-				else if ((pow(mid,n) > x)) {
-					
+			
+				mid = (min + max) /(2);
+				
+				if ((pow(mid,n) > x)) {
+					cout << "llega\n";
+					min = min;
+					max = mid;
 				}
 				else if (pow(mid, n) < x) {
-
-				} else if
+					cout << "llega 2\n";
+					min = mid;
+					max = max;
+				}
+				else if ((int)pow(mid, n) == x) {
+					cout << "llega 3\n";
+					break;
+				}
 
 			}
+			cout << (int)pow(mid, n) << endl;
+			//impresion final de la funcion
+			cout << "Raiz " << n << " de " << x << " = " << mid <<endl;
 		}
 
 
@@ -92,11 +109,13 @@ int main(){
 
 		switch (opcion){
 			case 1:
+				//Llamado de la funcion que corre el primer ejercicio
 				ejercicio1();
 					break;
 			case 2:
-
-				break;
+				//Llamado de la funcion que corre el segundo ejercicio
+				ejercicio2();
+					break;
 
 
 			default:
