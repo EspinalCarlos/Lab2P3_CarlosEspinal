@@ -40,6 +40,47 @@ void ejercicio1() {
 
 }
 
+void ejercicio2() {
+	int iteraciones = 0;
+	do {
+		int x, n;
+		cout << "Ingrese el valor de de x: ";
+		cin >> x;
+		cout << endl;
+		cout << "Ingrese el valor de n: ";
+		cin >> n;
+		cout << endl;
+		cout << "Ingrese un numero maximo de iteraciones: ";
+		cin >> iteraciones;
+
+		if (iteraciones < 10){
+			cout << "Ha ingresado un dato incorrecto\n";
+		}
+		else {
+			double min, mid, max;
+			for (int i = 0; i < iteraciones; i++){
+				if (i == 0) {
+					min = 1;
+					max = x;
+					mid = (min + max) /(2);
+				}
+				else if ((pow(mid,n) > x)) {
+					
+				}
+				else if (pow(mid, n) < x) {
+
+				} else if
+
+			}
+		}
+
+
+	} while (iteraciones < 10);
+
+
+
+}
+
 
 int main(){
 	int opcion;
@@ -52,6 +93,11 @@ int main(){
 		switch (opcion){
 			case 1:
 				ejercicio1();
+					break;
+			case 2:
+
+				break;
+
 
 			default:
 				break;
